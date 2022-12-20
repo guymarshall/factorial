@@ -3,7 +3,7 @@ use num::BigInt;
 use std::ops::Mul;
 use std::cmp::Ordering;
 
-pub fn factorial(number: i32) -> BigInt {
+pub fn factorial_single_threaded(number: i32) -> BigInt {
     let mut factorial: BigInt = BigInt::parse_bytes(b"1", 10).unwrap();
     let mut counter: i32 = 1;
 
@@ -12,5 +12,26 @@ pub fn factorial(number: i32) -> BigInt {
         counter += 1;
     }
 
+    factorial
+}
+
+fn number_to_vector(number: i32) -> Vec<BigInt> {
+    let mut numbers: Vec<BigInt> = Vec::new();
+
+    for i in 1..=number {
+        numbers.push(BigInt::from(i));
+    }
+
+    numbers
+}
+
+pub fn factorial(number: i32) -> BigInt {
+    let numbers: Vec<BigInt> = number_to_vector(number);
+    // elements.iter_mut().for_each(|x| *x *= c);
+    let mut factorial: BigInt = BigInt::from(1);
+
+    for number in numbers {
+        factorial = factorial.mul(number);
+    }
     factorial
 }
