@@ -27,11 +27,8 @@ fn number_to_vector(number: i32) -> Vec<BigInt> {
 
 pub fn factorial(number: i32) -> BigInt {
     let numbers: Vec<BigInt> = number_to_vector(number);
-    // elements.iter_mut().for_each(|x| *x *= c);
-    let mut factorial: BigInt = BigInt::from(1);
 
-    for number in numbers {
-        factorial = factorial.mul(number);
-    }
+    let factorial: BigInt = numbers.iter().fold(BigInt::from(1), |acc, x| acc * x);
+
     factorial
 }
