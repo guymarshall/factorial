@@ -19,7 +19,6 @@ fn factorial(number: i32) -> BigInt {
 
 fn main() {
     let user_input: i32 = user_input::get_user_input("Enter number: ");
-    let factorial: BigInt = factorial(user_input);
 
-    println!("{}! = {}", user_input, factorial);
+    println!("{}! = {}", user_input, factorial(user_input));
 }
