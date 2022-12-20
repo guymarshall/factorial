@@ -18,9 +18,9 @@ pub fn factorial_single_threaded(number: i32) -> BigInt {
 fn number_to_vector(number: i32) -> Vec<BigInt> {
     let mut numbers: Vec<BigInt> = Vec::new();
 
-    for i in 1..=number {
+    (1..=number).into_iter().for_each(|i| {
         numbers.push(BigInt::from(i));
-    }
+    });
 
     numbers
 }
