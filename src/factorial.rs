@@ -17,7 +17,5 @@ pub fn factorial(number: i32) -> BigInt {
     
     let numbers: Vec<BigInt> = number_to_vector(number);
 
-    let factorial: BigInt = numbers.iter().fold(BigInt::from(1), |acc, x| acc * x);
-
-    factorial
+    numbers.iter().fold(BigInt::from(1), |acc, x| acc * x)
 }
