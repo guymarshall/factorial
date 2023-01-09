@@ -1,14 +1,9 @@
 extern crate num;
 use num::BigInt;
+use rayon::prelude::*;
 
 fn number_to_vector(number: i32) -> Vec<BigInt> {
-    let mut numbers: Vec<BigInt> = Vec::new();
-
-    (1..=number).into_iter().for_each(|i| {
-        numbers.push(BigInt::from(i));
-    });
-
-    numbers
+    (1..=number).into_par_iter().map(|i| BigInt::from(i)).collect()
 }
 
 pub fn factorial(number: i32) -> BigInt {
