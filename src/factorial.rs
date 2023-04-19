@@ -7,14 +7,6 @@ fn number_to_vector(number: i32) -> Vec<BigInt> {
 }
 
 pub fn factorial(number: i32) -> BigInt {
-    if number < 0 {
-        panic!("Factorial is not defined for negative numbers");
-    }
-
-    if number == 0 {
-        return BigInt::from(1);
-    }
-    
     let numbers: Vec<BigInt> = number_to_vector(number);
 
     numbers.iter().fold(BigInt::from(1), |acc, x| acc * x)
