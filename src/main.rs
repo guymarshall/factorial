@@ -16,5 +16,5 @@ fn main() {
         return;
     }
 
-    println!("{}! = {}", user_input, factorial::factorial(user_input));
+    println!("{}! = {}", user_input, factorial::format_scientific(&factorial::factorial(user_input)));
 }
