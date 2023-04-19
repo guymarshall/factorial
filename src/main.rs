@@ -9,7 +9,7 @@ fn main() {
     }
 
     if user_input == 0 {
-        println!("Factorial of 0 is 1");
+        println!("0! = 1");
         return;
     }
 
