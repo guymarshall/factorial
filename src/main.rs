@@ -5,7 +5,8 @@ fn main() {
     let user_input: i32 = user_input::get_user_input("Enter number: ");
 
     if user_input < 0 {
-        panic!("Factorial is not defined for negative numbers");
+        println!("Factorial is not defined for negative numbers");
+        return;
     }
 
     if user_input == 0 {
