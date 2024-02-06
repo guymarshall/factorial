@@ -9,7 +9,11 @@ fn number_to_vector(number: i32) -> Vec<BigInt> {
 }
 
 pub fn factorial(number: i32) -> BigInt {
-    number_to_vector(number).iter().fold(BigInt::from(1), |accumulator, current| accumulator * current)
+    number_to_vector(number)
+        .iter()
+        .fold(BigInt::from(1), |accumulator, current| {
+            accumulator * current
+        })
 }
 
 pub fn format_scientific(number: &BigInt) -> String {

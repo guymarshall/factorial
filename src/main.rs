@@ -1,7 +1,7 @@
 #![forbid(unsafe_code)]
 
-mod user_input;
 mod factorial;
+mod user_input;
 
 fn main() {
     let user_input: i32 = user_input::input("Enter number: ");
@@ -16,5 +16,9 @@ fn main() {
         return;
     }
 
-    println!("{}! = {}", user_input, factorial::format_scientific(&factorial::factorial(user_input)));
+    println!(
+        "{}! = {}",
+        user_input,
+        factorial::format_scientific(&factorial::factorial(user_input))
+    );
 }
