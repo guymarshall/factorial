@@ -1,5 +1,8 @@
 #![forbid(unsafe_code)]
 
+use std::process::exit;
+use num::BigInt;
+
 mod factorial;
 mod user_input;
 
@@ -8,17 +11,16 @@ fn main() {
 
     if user_input < 0 {
         println!("Factorial is not defined for negative numbers");
-        return;
+        exit(1);
     }
 
     if user_input == 0 {
         println!("0! = 1");
-        return;
+        exit(1);
     }
 
-    println!(
-        "{}! = {}",
-        user_input,
-        factorial::format_scientific(&factorial::factorial(user_input))
-    );
+    let factorial: BigInt = factorial::factorial(user_input);
+    let formatted_factorial: String = factorial::format_scientific(&factorial);
+
+    println!("{}! = {}", user_input, formatted_factorial);
 }
