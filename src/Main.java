@@ -27,6 +27,8 @@ public class Main {
 
         long startTime = System.nanoTime();
         BigInteger factorial = factorial(number);
+
+        System.out.println("Formatting...");
         String factorialFormatted = formatScientific(factorial);
         System.out.printf("%d! = %s%n", number, factorialFormatted);
 
