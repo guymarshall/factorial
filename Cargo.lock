@@ -58,6 +58,7 @@ version = "0.1.0"
 dependencies = [
  "bigdecimal",
  "num",
+ "promptput",
  "rayon",
 ]
 
@@ -139,6 +140,12 @@ checksum = "071dfc062690e90b734c0b2273ce72ad0ffa95f0c74596bc250dcfd960262841"
 dependencies = [
  "autocfg",
 ]
+
+[[package]]
+name = "promptput"
+version = "0.1.0"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "d6f75abd331c9167d30f9955d94b7605d8a38399ccffa8ba340a7864e8799889"
 
 [[package]]
 name = "rayon"

@@ -1,11 +1,10 @@
-mod user_input;
-
 extern crate num;
 
 use std::time::Instant;
 
 use bigdecimal::BigDecimal;
 use num::BigInt;
+use promptput::input;
 use rayon::prelude::*;
 
 fn format_scientific(number: BigInt) -> String {
@@ -21,12 +20,12 @@ fn calculate_factorial(number: i32) -> BigInt {
     (2..=number)
         .into_par_iter()
         .map(BigInt::from)
-        .reduce_with(|a, b| a * b)
+        .reduce_with(|a: BigInt, b: BigInt| a * b)
         .unwrap_or(BigInt::from(1))
 }
 
 fn main() {
-    let number: i32 = user_input::input("Enter number:");
+    let number: i32 = input("Enter number:");
 
     let start_time: Instant = Instant::now();
     let factorial: BigInt = calculate_factorial(number);
