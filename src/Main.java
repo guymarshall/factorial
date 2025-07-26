@@ -4,6 +4,7 @@ import java.text.DecimalFormatSymbols;
 import java.text.NumberFormat;
 import java.util.Locale;
 import java.util.Scanner;
+import java.util.stream.IntStream;
 
 public class Main {
     public static String formatScientific(BigInteger number) {
@@ -16,21 +17,10 @@ public class Main {
     }
 
     public static BigInteger calculateFactorial(int number) {
-        BigInteger factorial = BigInteger.ONE;
-
-        for (BigInteger i = BigInteger.ONE; i.compareTo(BigInteger.valueOf(number)) <= 0; i = i.add(BigInteger.ONE)) {
-            factorial = factorial.multiply(i);
-        }
-
-        return factorial;
-
-        /*
-        (2..=number)
-            .into_par_iter()
-            .map(BigInt::from)
-            .reduce_with(|a: BigInt, b: BigInt| a * b)
-            .unwrap_or(BigInt::from(1))
-        */
+        return IntStream.rangeClosed(2, number)
+                .parallel()
+                .mapToObj(BigInteger::valueOf)
+                .reduce(BigInteger.ONE, BigInteger::multiply);
     }
 
     public static void main(String[] args) {
