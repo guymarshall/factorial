@@ -7,11 +7,8 @@ use num::BigInt;
 use promptput::input;
 use rayon::prelude::*;
 
+// TODO: INCREDIBLY SLOW FOR FACTORIAL > 100000
 fn format_scientific(number: BigInt) -> String {
-    if number < BigInt::from(1000) {
-        return number.to_string();
-    }
-
     let number_decimal: BigDecimal = BigDecimal::from(number);
     format!("{number_decimal:.2E}")
 }
